@@ -29,6 +29,15 @@ fn create_man_page() {
         )
         .flag(
             Flag::new()
+                .short("-d")
+                .long("--diff")
+                .help(
+                    r#"When performing a replace in file, emit the replacement
+                    to STDOUT in diff format instead of modifying the file in
+                    place"#),
+        )
+        .flag(
+            Flag::new()
                 .short("-s")
                 .long("--string-mode")
                 .help("Treat expressions as non-regex strings."),

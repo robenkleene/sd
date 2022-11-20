@@ -198,6 +198,12 @@ To preview changes:
 > sd -p 'window.fetch' 'fetch' http.js 
 ```
 
+Or in diff format:
+
+```sh
+> sd -d 'window.fetch' 'fetch' http.js 
+```
+
 5. **Find & replace across project**
 
 This example uses [fd](https://github.com/sharkdp/fd).
