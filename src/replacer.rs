@@ -99,6 +99,7 @@ impl Replacer {
     ) -> std::borrow::Cow<'a, [u8]> {
         let mut v = Vec::<u8>::new();
         let mut captures = self.regex.captures_iter(content);
+        // println!("content = {:?}", content);
 
         self.regex.split(content).for_each(|sur_text| {
             use regex::bytes::Replacer;
@@ -219,4 +220,9 @@ mod tests {
     fn full_word_replace() {
         replace("abc", "def", false, Some("w"), "abcd abc", "abcd def");
     }
+
+    // #[test]
+    // fn replace_preview() {
+    //     // replace_preview(&buffer)
+    // }
 }
