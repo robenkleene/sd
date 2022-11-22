@@ -23,7 +23,9 @@ fn create_man_page() {
             Flag::new()
                 .short("-p")
                 .long("--preview")
-                .help("Emit the replacement to STDOUT"),
+                .help(
+                    r#"When performing a replace in file, emit the replacement
+                    to STDOUT instead of modifying the file in place"#),
         )
         .flag(
             Flag::new()
