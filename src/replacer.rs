@@ -78,6 +78,7 @@ impl Replacer {
         &'a self,
         content: &'a [u8],
     ) -> std::borrow::Cow<'a, [u8]> {
+        println!("FINDME replace");
         if self.is_literal {
             self.regex.replacen(
                 &content,
@@ -97,11 +98,18 @@ impl Replacer {
         &'a self,
         content: &[u8],
     ) -> std::borrow::Cow<'a, [u8]> {
+        eprintln!("FINDME replace_preview");
+        // eprintln!("FINDME content = {:?}", content);
+        eprintln!("FINDME regex = {:?}", self.regex);
+
         let mut v = Vec::<u8>::new();
+        // Get captures for `content`
         let mut captures = self.regex.captures_iter(content);
         // println!("content = {:?}", content);
 
+        // `sur_text` is all the text between the matches
         self.regex.split(content).for_each(|sur_text| {
+            eprintln!("FINDME sur_text = {:?}", String::from_utf8_lossy(sur_text));
             use regex::bytes::Replacer;
 
             &v.extend(sur_text);
